@@ -45,6 +45,30 @@ def view_tasks(tasks):
             print(f"{number}. {task}")
 
 
+def delete_task(tasks):
+    """根据任务编号删除任务并立即保存。"""
+    if len(tasks) == 0:
+        print("任务列表为空，无法删除")
+        return
+
+    view_tasks(tasks)
+    user_input = input("请输入要删除的任务编号：")
+
+    try:
+        number = int(user_input)
+    except ValueError:
+        print("编号不存在，无法删除")
+        return
+
+    if number < 1 or number > len(tasks):
+        print("编号不存在，无法删除")
+        return
+
+    del tasks[number - 1]
+    save_tasks(tasks)
+    print("任务删除成功！")
+
+
 def main():
     """运行 Todo List 程序。"""
     tasks = load_tasks()
@@ -53,19 +77,22 @@ def main():
         print("\n--- Todo List ---")
         print("1. 添加任务")
         print("2. 查看所有任务")
-        print("3. 退出程序")
+        print("3. 删除任务")
+        print("4. 退出程序")
 
-        choice = input("请选择功能（1/2/3）：")
+        choice = input("请选择功能（1/2/3/4）：")
 
         if choice == "1":
             add_task(tasks)
         elif choice == "2":
             view_tasks(tasks)
         elif choice == "3":
+            delete_task(tasks)
+        elif choice == "4":
             print("程序已退出。")
             break
         else:
-            print("输入无效，请输入 1、2 或 3。")
+            print("输入无效，请输入 1、2、3 或 4。")
 
 
 if __name__ == "__main__":

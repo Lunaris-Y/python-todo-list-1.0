@@ -3,4 +3,4 @@ __pycache__/
 *.pyc
 
 # 程序运行时保存的个人任务
-tasks.txt
+tasks.json

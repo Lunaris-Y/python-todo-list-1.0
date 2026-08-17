@@ -1,10 +1,37 @@
+TASKS_FILE = "tasks.txt"
+
+
+def load_tasks():
+    """从本地文件读取任务。"""
+    tasks = []
+
+    try:
+        with open(TASKS_FILE, "r", encoding="utf-8") as file:
+            for line in file:
+                tasks.append(line.rstrip("\n"))
+    except FileNotFoundError:
+        pass
+
+    return tasks
+
+
+def save_tasks(tasks):
+    """把所有任务保存到本地文件。"""
+    with open(TASKS_FILE, "w", encoding="utf-8") as file:
+        for task in tasks:
+            file.write(task + "\n")
+
+
 def add_task(tasks):
-    """添加一个任务。"""
+    """添加一个任务并立即保存。"""
     task = input("请输入任务内容：")
+
     if task == "":
         print("任务内容不能为空！")
         return
+
     tasks.append(task)
+    save_tasks(tasks)
     print("任务添加成功！")
 
 
@@ -20,7 +47,7 @@ def view_tasks(tasks):
 
 def main():
     """运行 Todo List 程序。"""
-    tasks = []
+    tasks = load_tasks()
 
     while True:
         print("\n--- Todo List ---")

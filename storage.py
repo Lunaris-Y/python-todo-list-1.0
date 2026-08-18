@@ -11,6 +11,8 @@ def load_tasks():
             return json.load(file)
     except FileNotFoundError:
         return []
+    except json.JSONDecodeError:
+        return []
 
 
 def save_tasks(tasks):

@@ -1,10 +1,10 @@
-# Python Todo List v0.4
+# Python Todo List
 
 这是一个适合 Python 初学者练习的命令行 Todo List 项目。
 
 ## 项目功能
 
-v0.4 包含以下功能：
+项目包含以下功能：
 
 1. 添加任务
 2. 查看所有任务
@@ -21,12 +21,12 @@ v0.4 包含以下功能：
 
 ```text
 .
-├── main.py       # Todo List 程序代码
+├── main.py       # 程序入口和菜单逻辑
 ├── tasks.py      # 添加、查看、删除和完成任务的逻辑
-├── storage.py    # tasks.json 的读取和保存逻辑
+├── storage.py    # JSON 文件读取和保存逻辑
 ├── README.md     # 项目介绍和运行说明
 ├── .gitignore    # Git 不需要跟踪的文件
-└── tasks.json    # 保存任务，第一次添加任务时自动创建
+└── tasks.json    # 运行时生成的数据文件，不提交到 Git
 ```
 
 ## 运行方法
@@ -49,13 +49,37 @@ python3 main.py
 
 ## 任务如何保存
 
-程序使用 JSON 文件 `tasks.json` 保存任务。每个任务包含任务名称和完成状态，例如：
+程序使用 JSON 文件 `tasks.json` 保存任务。JSON 文件中的数据是一个任务列表，列表中的每个任务都包含任务名称和完成状态，例如：
 
 ```json
-{
-    "title": "学习 Python",
-    "completed": false
-}
+[
+    {
+        "title": "学习 Python",
+        "completed": false
+    },
+    {
+        "title": "写高数作业",
+        "completed": true
+    }
+]
 ```
 
-不需要手动创建 `tasks.json`；如果它不存在，程序仍然可以正常启动，并会在第一次添加任务时自动创建它。v0.4 不读取旧版本的 `tasks.txt`。
+不需要手动创建 `tasks.json`；如果它不存在，程序仍然可以正常启动，并会在第一次添加任务时自动创建它。项目不读取旧版本的 `tasks.txt`。
+
+## 项目学习目标
+
+通过这个项目，可以学习和练习：
+
+- Python 基础语法
+- 文件读写
+- JSON 数据存储
+- 模块化设计
+- Git 版本管理
+
+## 开发历史
+
+- v0.1：基础 Todo 功能
+- v0.2：本地文件持久化
+- v0.3：删除任务功能
+- v0.4：JSON 数据结构和完成状态
+- v0.5：项目结构重构

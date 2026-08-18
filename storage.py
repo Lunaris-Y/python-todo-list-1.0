@@ -1,10 +1,10 @@
 import json
 
 
-TASKS_FILE = "tasks.json"
+TASKS_FILE: str = "tasks.json"
 
 
-def load_tasks():
+def load_tasks() -> list[dict]:
     """从 JSON 文件读取任务。"""
     try:
         with open(TASKS_FILE, "r", encoding="utf-8") as file:
@@ -15,7 +15,7 @@ def load_tasks():
         return []
 
 
-def save_tasks(tasks):
+def save_tasks(tasks: list[dict]) -> None:
     """把所有任务保存到 JSON 文件。"""
     with open(TASKS_FILE, "w", encoding="utf-8") as file:
         json.dump(tasks, file, ensure_ascii=False, indent=4)

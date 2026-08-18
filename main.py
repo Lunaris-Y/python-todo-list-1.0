@@ -2,7 +2,7 @@ from storage import load_tasks
 from tasks import add_task, complete_task, delete_task, view_tasks
 
 
-def main():
+def main() -> None:
     """运行 Todo List 程序。"""
     tasks = load_tasks()
 

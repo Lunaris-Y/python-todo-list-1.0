@@ -1,7 +1,7 @@
 from storage import save_tasks
 
 
-def add_task(tasks):
+def add_task(tasks: list[dict]) -> None:
     """添加一个任务并立即保存。"""
     task = input("请输入任务内容：")
 
@@ -18,7 +18,7 @@ def add_task(tasks):
     print("任务添加成功！")
 
 
-def view_tasks(tasks):
+def view_tasks(tasks: list[dict]) -> None:
     """查看所有任务。"""
     if len(tasks) == 0:
         print("目前没有任务。")
@@ -32,7 +32,7 @@ def view_tasks(tasks):
             print(f"{number}. [{status}] {task['title']}")
 
 
-def delete_task(tasks):
+def delete_task(tasks: list[dict]) -> None:
     """根据任务编号删除任务并立即保存。"""
     if len(tasks) == 0:
         print("任务列表为空，无法删除")
@@ -56,7 +56,7 @@ def delete_task(tasks):
     print("任务删除成功！")
 
 
-def complete_task(tasks):
+def complete_task(tasks: list[dict]) -> None:
     """根据任务编号完成任务并立即保存。"""
     if len(tasks) == 0:
         print("任务列表为空，无法完成")

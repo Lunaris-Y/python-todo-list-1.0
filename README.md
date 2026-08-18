@@ -22,6 +22,8 @@ v0.4 包含以下功能：
 ```text
 .
 ├── main.py       # Todo List 程序代码
+├── tasks.py      # 添加、查看、删除和完成任务的逻辑
+├── storage.py    # tasks.json 的读取和保存逻辑
 ├── README.md     # 项目介绍和运行说明
 ├── .gitignore    # Git 不需要跟踪的文件
 └── tasks.json    # 保存任务，第一次添加任务时自动创建

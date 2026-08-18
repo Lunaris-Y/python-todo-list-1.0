@@ -24,6 +24,9 @@
 ├── main.py       # 程序入口和菜单逻辑
 ├── tasks.py      # 添加、查看、删除和完成任务的逻辑
 ├── storage.py    # JSON 文件读取和保存逻辑
+├── tests/
+│   ├── test_tasks.py    # 任务功能测试
+│   └── test_storage.py  # JSON 读取和保存测试
 ├── README.md     # 项目介绍和运行说明
 ├── .gitignore    # Git 不需要跟踪的文件
 └── tasks.json    # 运行时生成的数据文件，不提交到 Git
@@ -83,3 +86,17 @@ python3 main.py
 - v0.3：删除任务功能
 - v0.4：JSON 数据结构和完成状态
 - v0.5：项目结构重构
+
+## Testing
+
+安装 pytest:
+
+```bash
+pip install pytest
+```
+
+运行测试:
+
+```bash
+python -m pytest tests -v
+```
